@@ -41,9 +41,7 @@ exports.pay = (req, res, nex) => {
 
 exports.boc = (req, res, nex, param) => {
     try {
-
-        console.log(param);
-
+        console.log(param)
         let oder = {
             "apiOperation": "CREATE_CHECKOUT_SESSION",
             "interaction": {
@@ -67,34 +65,33 @@ exports.boc = (req, res, nex, param) => {
                 }
             }
         }
-        console.log("-----------------------");
-        console.log(oder);
-        console.log("-----------------------");
-        // axios.post('https://bankofceylon.gateway.mastercard.com/api/rest/version/58/merchant/700193990171/session', oder, {
-        axios.post('https://test-bankofceylon.mtf.gateway.mastercard.com/api/rest/version/61/merchant/700193990171/session', oder, {
-            headers: {
-                'Authorization': 'Basic ' + btoa('merchant.700193990171:26e7c0d37325c682ceef2f3f14c1ddd8')
-            //     TEST700193990171 administrator Ac46iF2mDwzkEDJ
-            //     TEST700193990171 yohan ApEKZdT6L6ueT95
-            //     21b49c6c84626f33a0eaf87ccf14540a
-            }
-        }).then(boc => {
-            console.log('-------------------------------');
-            console.log(boc.data);
-            param.o2 = boc.data;
-            console.log(param);
-            res.send(param);
-            console.log('-------------------------------');
+        console.log("-----------------------")
+        console.log(oder)
+        console.log("-----------------------")
+        axios.post(
+                "https://test-bankofceylon.mtf.gateway.mastercard.com/api/rest/version/61/merchant/TEST700193990199/session",
+                oder, {
+                    headers: {
+                        "Authorization": "Basic " + btoa(
+                                "merchant.TEST700193990199:b18155f3706610ccd4efe4a2fc153a75")
+                    }
+                }).then(boc => {
+            console.log("-------------------------------")
+            console.log(boc.data)
+            param.o2 = boc.data
+            console.log(param)
+            res.send(param)
+            console.log("-------------------------------")
         }).catch(err => {
-            console.log('********************');
+            console.log("********************")
             console.log(err)
             console.error(err.data)
-            res.send({ error: err.data });
+            res.send({error: err.data})
         })
     } catch (error) {
-        console.log(error);
+        console.log(error)
     }
-};
+}
 
 
 
