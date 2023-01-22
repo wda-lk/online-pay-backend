@@ -94,48 +94,47 @@ exports.boc = (req, res, nex, param) => {
 }
 
 
-
 exports.responce = (req, res, nex) => {
-    console.log(req.body);
+    console.log(req.body)
     db.execute(
-        "UPDATE `online_pay` SET `status` = '1', ref = '" + req.body.orderID + "' WHERE	(`idOnPaid` = '" + req.body.onpayid + "');",
-        (error, rows, fildData) => {
-            if (!error) {
-                console.log(rows);
-                db.execute("SELECT online_pay.idOnPaid,online_pay.oncus_id,online_pay.appcat_id,online_pay.app_id,online_pay.date,online_pay.amount,online_pay.`status`,online_pay.description,online_pay.other,online_pay.other2,online_pay.oder,online_cus.idOnline,online_cus.fullname,online_cus.nic,online_cus.email,online_cus.mobile,assessment.idAssessment,ward.ward_name,street.street_name,assessment.assessment_no FROM online_pay INNER JOIN online_cus ON online_cus.idOnline=online_pay.oncus_id INNER JOIN assessment ON assessment.idAssessment=online_pay.app_id INNER JOIN ward ON assessment.Ward_idWard=ward.idWard INNER JOIN street ON street.Ward_idWard=ward.idWard AND assessment.Street_idStreet=street.idStreet WHERE online_pay.idOnPaid='" + req.body.onpayid + "'",
-                    (er, ro, fi) => {
-                        if (!er) {
-                            let data = ro[0];
-
-                            var content = htmls.re1 +
-                                htmls.re2 + process.env.rootPath + htmls.re22 + process.env.SabaName + htmls.re222 + "<h1> Hi " + data.fullname + "<h1>" +
-                                htmls.re3 + "<h3>Online Payment ID : " + data.idOnPaid + "</h3> " +
-                                htmls.re4 + data.date +
-                                htmls.re5 + data.ward_name + " - " + data.street_name + " - " + data.assessment_no +
-                                htmls.re6 + "Rs. " + data.amount +
-                                htmls.re7 + "Rs. " + data.amount +
-                                htmls.re8 + "  " + process.env.contact +
-                                htmls.re9 + process.env.SabaName +
-                                htmls.re10;
-
-
-                            var param = {
-                                html: content,
-                                to: data.email,
-                                subject: 'Payment Receipt',
-                                text: 'Text message',
-                            };
-
-                            mail.emailSend(param);
-                            mail.mobitelSmsSend({ to: data.mobile, mg: 'Payment Success LKR. ' + data.amount });
-
-                        }
-                        res.send(rows);
-                    });
-
-            } else {
-                console.log("error message");
-                console.log(error);
-            }
-        });
-};
+            "UPDATE `online_pay` SET `status` = '1', ref = '" + req.body.orderID + "' WHERE	(`idOnPaid` = '" + req.body.onpayid + "');",
+            (error, rows, fildData) => {
+                if (!error) {
+                    console.log(rows)
+                    db.execute(
+                            "SELECT online_pay.idOnPaid,online_pay.oncus_id,online_pay.appcat_id,online_pay.app_id,online_pay.date,online_pay.amount,online_pay.`status`,online_pay.description,online_pay.other,online_pay.other2,online_pay.oder,online_cus.idOnline,online_cus.fullname,online_cus.nic,online_cus.email,online_cus.mobile,assessment.idAssessment,ward.ward_name,street.street_name,assessment.assessment_no FROM online_pay INNER JOIN online_cus ON online_cus.idOnline=online_pay.oncus_id INNER JOIN assessment ON assessment.idAssessment=online_pay.app_id INNER JOIN ward ON assessment.Ward_idWard=ward.idWard INNER JOIN street ON street.Ward_idWard=ward.idWard AND assessment.Street_idStreet=street.idStreet WHERE online_pay.idOnPaid='" + req.body.onpayid + "'",
+                            (er, ro, fi) => {
+                                if (!er) {
+                                    let data = ro[0]
+                                    var content = htmls.re1 +
+                                                  htmls.re2 + process.env.rootPath + htmls.re22 + process.env.SabaName + htmls.re222 + "<h1> Hi " + data.fullname + "<h1>" +
+                                                  htmls.re3 + "<h3>Online Payment ID : " + data.idOnPaid + "</h3> " +
+                                                  htmls.re4 + data.date +
+                                                  htmls.re5 + data.ward_name + " - " + data.street_name + " - " + data.assessment_no +
+                                                  htmls.re6 + "Rs. " + data.amount +
+                                                  htmls.re7 + "Rs. " + data.amount +
+                                                  htmls.re8 + "  " + process.env.contact +
+                                                  htmls.re9 + process.env.SabaName +
+                                                  htmls.re10
+                                    var param = {
+                                        html: content,
+                                        to: data.email,
+                                        subject: "Payment Receipt",
+                                        text: "Text message"
+                                    }
+                                    let message = "Hi " + data.fullname + "\n" +
+                                                  "Payment successful for id: " + data.idOnPaid + "\n" +
+                                                  "Assessment info: " + data.ward_name + " - " + data.street_name + " - " + data.assessment_no + "\n" +
+                                                  "Amount: LKR: " + data.amount + "\n" +
+                                                  "Date: " + data.date + "Location: " + process.env.SabaName + "Hot Line: " + process.env.contact
+                                    mail.emailSend(param)
+                                    mail.mobitelSmsSend({to: data.mobile, mg: message})
+                                }
+                                res.send(rows)
+                            })
+                } else {
+                    console.log("error message")
+                    console.log(error)
+                }
+            })
+}
