@@ -5,7 +5,7 @@ const Sequelize = require('sequelize');
 // const sequelize = new Sequelize('ultimate2', 'root', 'CHI@#321#', {  // Chilaw
 // const sequelize = new Sequelize('ultimate2', 'root', 'KULIUC@#321#', {  //MCK
 // const sequelize = new Sequelize("online_test", "root","IBBA@#321$%" , { //Ibbagamuwa
-const sequelize = new Sequelize("ultimate2", "root","Kuru$#@321%@#$" , { //Naththandiya
+const sequelize = new Sequelize("online_test", "root","Kuru$#@321%@#$" , { //Naththandiya
     port: 3306,
     host: "124.43.65.168",
     dialect: 'mysql',
