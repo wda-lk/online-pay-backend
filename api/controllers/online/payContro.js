@@ -56,12 +56,12 @@ exports.boc = (req, res, nex, param) => {
             },
             "billing": {
                 "address": {
-                    "city": "Puttalam",
-                    "postcodeZip": "61190",
+                    "city": "Kurunegala",
+                    "postcodeZip": "10000",
                     "stateProvince": "North Western",
-                    "country": "LKA",
-                    "street": "A.T.No. " + param.app,
-                    "street2": "Nattandiya"
+                    "country": "Sri Lanka",
+                    "street": "No.286/9, PUTTHALAM ROAD",
+                    "street2": "Kurunegala"
                 }
             }
         }
