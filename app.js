@@ -53,8 +53,6 @@ const allowedOrigins = [
   'https://wennappuwa.cat2020.org',
   'http://ibbagamuwaps.cat2020.org',
   'https://ibbagamuwaps.cat2020.org',
-  'http://kurunegalaps.cat2020.org',
-  'https://kurunegalaps.cat2020.org',
   '*',
 ];
 
