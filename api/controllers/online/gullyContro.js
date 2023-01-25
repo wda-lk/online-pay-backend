@@ -176,55 +176,56 @@ exports.pay = (req, res, nex) => {
 };
 
 exports.boc = (req, res, nex, param) => {
-    try {
-
-        console.log(param);
-        console.log(process.env.resultRedirect);
-        console.log(process.env.bota_code);
-        axios.post('https://bankofceylon.gateway.mastercard.com/api/rest/version/58/merchant/700193990143/session', {
-        // axios.post('https://test-bankofceylon.mtf.gateway.mastercard.com/api/rest/version/61/merchant/700193990143/session', {
-            "apiOperation": "CREATE_CHECKOUT_SESSION",
-            "interaction": {
-                "operation": "PURCHASE",
-                "returnUrl": process.env.resultRedirectOther
-            },
-            "order": {
-                "currency": "LKR",
-                "id": param.o1 + "_" + param.catname + "_" + param.app,
-                "amount": param.total,
-                "description": "Gully service - " + param.app + " cus - " + param.cusid + " id - " + param.o1
-            },
-            "billing": {
-                "address": {
-                    "city": "Ibbagamuwa",
-                    "postcodeZip": "60500",
-                    "stateProvince": "North West",
-                    "country": "LKA",
-                    "street": "A.T.No. " + param.app,
-                    "street2": "Ibbagamuwa"
-                }
-            }
-        }, {
-            headers: {
-                'Authorization': 'Basic ' + btoa('merchant.700193990143:30d496b45970d6ec08b5eea71aaecd08')
-            }
-        }).then(boc => {
-            console.log('-------------------------------');
-            console.log(boc.data);
-            param.o2 = boc.data;
-            console.log(param);
-            res.send(param);
-            console.log('-------------------------------');
-        }).catch(err => {
-            console.log('********************');
-            console.log(err)
-            console.error(err.data)
-            res.send({ error: err.data });
-        })
-    } catch (error) {
-        console.log(error);
-    }
-};
+	try {
+		console.log(param)
+		console.log(process.env.resultRedirect)
+		console.log(process.env.bota_code)
+		axios.post(
+				"https://test-bankofceylon.mtf.gateway.mastercard.com/api/rest/version/61/merchant/TEST700193990199/session",
+				{
+					"apiOperation": "CREATE_CHECKOUT_SESSION",
+					"interaction": {
+						"operation": "PURCHASE",
+						"returnUrl": process.env.resultRedirectOther
+					},
+					"order": {
+						"currency": "LKR",
+						"id": param.o1 + "_" + param.catname + "_" + param.app,
+						"amount": param.total,
+						"description": "Gully service - " + param.app + " cus - " + param.cusid + " id - " + param.o1
+					},
+					"billing": {
+						"address": {
+							"city": "Ibbagamuwa",
+							"postcodeZip": "60500",
+							"stateProvince": "North West",
+							"country": "LKA",
+							"street": "A.T.No. " + param.app,
+							"street2": "Ibbagamuwa"
+						}
+					}
+				}, {
+					headers: {
+						"Authorization": "Basic " + btoa(
+								"merchant.TEST700193990199:b18155f3706610ccd4efe4a2fc153a75")
+					}
+				}).then(boc => {
+			console.log("-------------------------------")
+			console.log(boc.data)
+			param.o2 = boc.data
+			console.log(param)
+			res.send(param)
+			console.log("-------------------------------")
+		}).catch(err => {
+			console.log("********************")
+			console.log(err)
+			console.error(err.data)
+			res.send({error: err.data})
+		})
+	} catch (error) {
+		console.log(error)
+	}
+}
 
 
 
