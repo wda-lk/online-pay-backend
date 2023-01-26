@@ -89,12 +89,12 @@ exports.boc = (req, res, nex, param) => {
 		console.log("-----------------------")
 		console.log(oder)
 		console.log("-----------------------")
-		axios.post("https://test-bankofceylon.mtf.gateway.mastercard.com/api/rest/version/61/" +
-				   "merchant/TEST700193990199/session",
+		axios.post("https://bankofceylon.gateway.mastercard.com/api/rest/version/61/" +
+				   "merchant/700193990199/session",
 				oder, {
 					headers: {
 						"Authorization": "Basic " + btoa(
-								"merchant.TEST700193990199:b18155f3706610ccd4efe4a2fc153a75")
+								"merchant.700193990199:5181641ccd840522c14c37e5da7e10fc")
 					}
 				}).then(boc => {
 			console.log("-------------------------------")

@@ -181,7 +181,7 @@ exports.boc = (req, res, nex, param) => {
 		console.log(process.env.resultRedirect)
 		console.log(process.env.bota_code)
 		axios.post(
-				"https://test-bankofceylon.mtf.gateway.mastercard.com/api/rest/version/61/merchant/TEST700193990199/session",
+				"https://bankofceylon.gateway.mastercard.com/api/rest/version/61/merchant/700193990199/session",
 				{
 					"apiOperation": "CREATE_CHECKOUT_SESSION",
 					"interaction": {
@@ -196,18 +196,18 @@ exports.boc = (req, res, nex, param) => {
 					},
 					"billing": {
 						"address": {
-							"city": "Ibbagamuwa",
-							"postcodeZip": "60500",
-							"stateProvince": "North West",
-							"country": "LKA",
-							"street": "A.T.No. " + param.app,
-							"street2": "Ibbagamuwa"
+							"city": "Kurunegala",
+							"postcodeZip": "10000",
+							"stateProvince": "North Western",
+							"country": "Sri Lanka",
+							"street": "No.286/9, PUTTHALAM ROAD",
+							"street2": "Kurunegala"
 						}
 					}
 				}, {
 					headers: {
 						"Authorization": "Basic " + btoa(
-								"merchant.TEST700193990199:b18155f3706610ccd4efe4a2fc153a75")
+								"merchant.700193990199:5181641ccd840522c14c37e5da7e10fc")
 					}
 				}).then(boc => {
 			console.log("-------------------------------")
