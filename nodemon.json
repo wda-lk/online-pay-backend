@@ -1,16 +1,16 @@
 {
     "env": {
         "JWT_KEY": "secret",
-        "host": "124.43.4.231",
-        "password": "NATH@#$321$%",
-        "database": "online_test",
-        "user": "root",
+        "host": "localhost",
+        "password": "cat2020!23",
+        "database": "cat2020-old",
+        "user": "cat2020",
         "sendby": "webportal@cat2020.org",
         "sendbypass": "webportal@2020",
-        "SabaName": "Ibbagamuwa Pradeshiaya Sabawa",
-        "contact": "0778281938",
-        "rootPath": "https://chilawuc.cat2020.org",
-        "resultRedirect": "http://localhost:81/result/",
-        "resultRedirectOther": "http://localhost:81/result/other.html/"
+        "SabaName": "",
+        "contact": "",
+        "rootPath": "https://localhost:4200",
+        "resultRedirect": "http://localhost:4200/result/",
+        "resultRedirectOther": "http://localhost:4200/result/other.html/"
     }
 }
