@@ -72,6 +72,24 @@ exports.mobitelSmsSend = (parm) => {
 		 })
 }
 
+exports.testSmsSend = (parm) => {
+	let send = {
+		user: "E00004",
+		password: "Kps@1234",
+		src: "kurnegalaPS",
+		dst: parm.to,
+		text: parm.mg,
+		mesageType: 1
+	}
+	axios.post("https://smsc.slt.lk:8093/api/sms", send)
+		 .then(res => {
+			 console.log(`statusCode: ${res[0]}`)
+		 })
+		 .catch(error => {
+			 console.error(error)
+		 })
+}
+
 exports.smsSend = (param) => {
 	var id = ""
 	var pword = ""
