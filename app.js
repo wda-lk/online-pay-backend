@@ -101,11 +101,6 @@ app.use(urlPrifix + 'complains', complain);
 app.use(urlPrifix + 'gully', gullyRoute);
 app.use(urlPrifix + 'waterbowser', waterbowsersRoute);
 
-// app.use('/sms', (req, res, next) => {
-//   message.mobitelSmsSend({ to: '0702517628', mg: 'test parameeter' });
-//   res.send({ ok: 'ok' });
-// });
-
 app.use((req, res, next) => {
   const error = new Error('Not Found ela kiri');
   error.status = 404;
