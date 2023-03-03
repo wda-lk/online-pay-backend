@@ -1,16 +1,16 @@
 {
-    "env": {
-        "JWT_KEY": "secret",
-        "host": "localhost",
-        "password": "cat2020!23",
-        "database": "cat2020-old",
-        "user": "cat2020",
-        "sendby": "webportal@cat2020.org",
-        "sendbypass": "webportal@2020",
-        "SabaName": "",
-        "contact": "",
-        "rootPath": "https://localhost:4200",
-        "resultRedirect": "http://localhost:4200/result/",
-        "resultRedirectOther": "http://localhost:4200/result/other.html/"
-    }
+  "env": {
+    "JWT_KEY": "secret",
+    "host": "124.43.9.57",
+    "password": "@Mck_#321",
+    "database": "online_test",
+    "user": "root",
+    "sendby": "webportal@cat2020.org",
+    "sendbypass": "webportal@2020",
+    "SabaName": "",
+    "contact": "",
+    "rootPath": "https://kurunegalamc.cat2020.org/result/",
+    "resultRedirect": "https://kurunegalamc.cat2020.org/result/",
+    "resultRedirectOther": "https://kurunegalamc.cat2020.org/result/other.html/"
+  }
 }
