@@ -77,24 +77,24 @@ exports.boc = (req, res, nex, param) => {
 			},
 			"billing": {
 				"address": {
-					"city": "Localhost",
-					"postcodeZip": "001",
-					"stateProvince": "Localhost",
-					"country": "Localhost",
-					"street": "Localhost",
-					"street2": "Localhost"
-				}
+                    "city": "Kurunegala",
+                    "postcodeZip": "60000",
+                    "stateProvince": "North Western",
+                    "country": "LKA",
+                    "street": "A.T.No. " + param.app,
+                    "street2": "Kurunegalal"
+                }
 			}
 		}
 		console.log("-----------------------")
 		console.log(oder)
 		console.log("-----------------------")
-		axios.post("https://test-bankofceylon.mtf.gateway.mastercard.com/api/rest/version/61/" +
-				   "merchant/TEST700193990199/session",
+		axios.post("https://bankofceylon.gateway.mastercard.com/api/rest/version/61/" +
+				   "merchant/700193990048/session",
 				oder, {
 					headers: {
 						"Authorization": "Basic " + btoa(
-								"merchant.TEST700193990199:b18155f3706610ccd4efe4a2fc153a75")
+								"merchant.700193990048:8d8308b8490c23e0eb2201da9af91935")
 					}
 				}).then(boc => {
 			console.log("-------------------------------")
