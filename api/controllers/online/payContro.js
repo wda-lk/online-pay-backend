@@ -63,37 +63,38 @@ exports.pay = (req, res, nex) => {
 exports.boc = (req, res, nex, param) => {
 	try {
 		console.log(param)
-		let data = {
+		let oder = {
 			"apiOperation": "CREATE_CHECKOUT_SESSION",
 			"interaction": {
-				"operation": "PURCHASE"
+				"operation": "PURCHASE",
+				"returnUrl": process.env.resultRedirect
 			},
 			"order": {
 				"currency": "LKR",
-				"id": "61_AT_11",
-				"amount": 12.11,
-				"description": "A.Tax11 C 62 ID 61"
+				"id": param.o1 + "_AT_" + param.app,
+				"amount": param.total,
+				"description": "A.Tax" + param.app + " C " + param.cusid + " ID " + param.o1
 			},
 			"billing": {
 				"address": {
-					"city": "Kurunegala",
-					"postcodeZip": "10000",
-					"stateProvince": "North West",
-					"country": "LKA",
-					"street": "No.286/9, Puttalam road",
-					"street2": "Kurunegala"
-				}
+                    "city": "Kurunegala",
+                    "postcodeZip": "60000",
+                    "stateProvince": "North Western",
+                    "country": "LKA",
+                    "street": "A.T.No. " + param.app,
+                    "street2": "Kurunegalal"
+                }
 			}
 		}
 		console.log("-----------------------")
-		console.log(data)
+		console.log(oder)
 		console.log("-----------------------")
-		axios.post(
-				"https://bankofceylon.gateway.mastercard.com/api/rest/version/61/merchant/700193990199/session",
-				data, {
+		axios.post("https://bankofceylon.gateway.mastercard.com/api/rest/version/61/" +
+				   "merchant/700193990199/session",
+				oder, {
 					headers: {
-						"Authorization":
-								"Basic " + btoa("merchant.700193990199:5181641ccd840522c14c37e5da7e10fc")
+						"Authorization": "Basic " + btoa(
+								"merchant.700193990199:5181641ccd840522c14c37e5da7e10fc")
 					}
 				}).then(boc => {
 			console.log("-------------------------------")

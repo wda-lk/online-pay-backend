@@ -9,7 +9,7 @@
         "sendbypass": "webportal@2020",
         "SabaName": "Kurunegala Pradeshiaya Sabawa",
         "contact": "0778281938",
-        "rootPath": "https://kurunegalaps.cat2020.org",
+        "rootPath": "https://kurunegalaps.cat2020.org/result/",
         "resultRedirect": "https://kurunegalaps.cat2020.org/result/",
         "resultRedirectOther": "https://kurunegalaps.cat2020.org/result/other.html/"
     }

@@ -6,7 +6,6 @@ const pool = mysql.createPool({
     password:"Kuru$#@321%@#$",
     database:"online_test",
     port: 3306
-   
 
 });
 

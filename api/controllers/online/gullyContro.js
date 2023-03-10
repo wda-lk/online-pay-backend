@@ -180,50 +180,48 @@ exports.boc = (req, res, nex, param) => {
 		console.log(param)
 		console.log(process.env.resultRedirect)
 		console.log(process.env.bota_code)
-		let data = {
-			"apiOperation": "CREATE_CHECKOUT_SESSION",
-			"interaction": {
-				"operation": "PURCHASE"
-			},
-			"order": {
-				"currency": "LKR",
-				"id": "61_AT_11",
-				"amount": 12.11,
-				"description": "A.Tax11 C 62 ID 61"
-			},
-			"billing": {
-				"address": {
-					"city": "Kurunegala",
-					"postcodeZip": "10000",
-					"stateProvince": "North West",
-					"country": "LKA",
-					"street": "No.286/9, Puttalam road",
-					"street2": "Kurunegala"
-				}
-			}
-		}
 		axios.post(
 				"https://bankofceylon.gateway.mastercard.com/api/rest/version/61/merchant/700193990199/session",
-				data,
 				{
-					headers: {
-						"Authorization": "Basic " + btoa("merchant.700193990199:5181641ccd840522c14c37e5da7e10fc")
+					"apiOperation": "CREATE_CHECKOUT_SESSION",
+					"interaction": {
+						"operation": "PURCHASE",
+						"returnUrl": process.env.resultRedirectOther
+					},
+					"order": {
+						"currency": "LKR",
+						"id": param.o1 + "_" + param.catname + "_" + param.app,
+						"amount": param.total,
+						"description": "Gully service - " + param.app + " cus - " + param.cusid + " id - " + param.o1
+					},
+					"billing": {
+						"address": {
+							"city": "Kurunegala",
+							"postcodeZip": "60000",
+							"stateProvince": "North Western",
+							"country": "LKA",
+							"street": "A.T.No. " + param.app,
+							"street2": "Kurunegalal"
+						}
 					}
-				})
-			 .then(boc => {
-				 console.log("-------------------------------")
-				 console.log(boc.data)
-				 param.o2 = boc.data
-				 console.log(param)
-				 res.send(param)
-				 console.log("-------------------------------")
-			 })
-			 .catch(err => {
-				 console.log("********************")
-				 console.log(err)
-				 console.error(err.data)
-				 res.send({error: err.data})
-			 })
+				}, {
+					headers: {
+						"Authorization": "Basic " + btoa(
+								"merchant.700193990199:5181641ccd840522c14c37e5da7e10fc")
+					}
+				}).then(boc => {
+			console.log("-------------------------------")
+			console.log(boc.data)
+			param.o2 = boc.data
+			console.log(param)
+			res.send(param)
+			console.log("-------------------------------")
+		}).catch(err => {
+			console.log("********************")
+			console.log(err)
+			console.error(err.data)
+			res.send({error: err.data})
+		})
 	} catch (error) {
 		console.log(error)
 	}
