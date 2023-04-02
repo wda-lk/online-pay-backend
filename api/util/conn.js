@@ -1,8 +1,8 @@
 const Sequelize = require("sequelize")
 
-const sequelize = new Sequelize("narammalaps", "root", "3ta@kela#una@", {
-  port: 3307,
-  host: "124.43.11.162",
+const sequelize = new Sequelize(process.env.database, process.env.user, process.env.password, {
+  port: 3306,
+  host: process.env.host,
   dialect: "mysql",
   define: {
     timestamps: false

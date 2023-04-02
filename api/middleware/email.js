@@ -55,26 +55,22 @@ exports.emailSend = (param) => {
 
 exports.mobitelSmsSend = (parm) => {
   let send = {
-    username: "esmsusr_11v8",
-    password: "qd5079",
-    from: "NARAMMALAPS",
+    username: "esmsusr_kf2",
+    password: "3ipd7ai",
+    from: "WENPC",
     to: parm.to,
     text: parm.mg,
     mesageType: 1
   }
 
-  axios
-    .post(
-      "http://smeapps.mobitel.lk:8585/EnterpriseSMSV3/esmsproxyURL.php",
-      send
-    )
-    .then((res) => {
-      console.log(`statusCode: ${res[0]}`)
-      // console.log(res)
-    })
-    .catch((error) => {
-      console.error(error)
-    })
+  axios.post("http://smeapps.mobitel.lk:8585/EnterpriseSMSV3/esmsproxyURL.php", send)
+       .then(res => {
+         console.log(`statusCode: ${res[0]}`)
+         // console.log(res)
+       })
+       .catch(error => {
+         console.error(error)
+       })
 }
 
 exports.smsSend = (param) => {

@@ -1,15 +1,16 @@
 {
   "env": {
     "JWT_KEY": "secret",
-    "host": "124.43.11.162",
+    "host": "220.247.237.52",
+    "password": "WEN@#321#",
+    "database": "ultimate2",
     "user": "root",
-    "password": "3ta@kela#una@",
-    "database": "narammalaps",
     "sendby": "webportal@cat2020.org",
     "sendbypass": "webportal@2020",
-    "SabaName": "Narammala Pradeshiya Sabawa",
-    "rootPath": "https://narammalaps.cat2020.org",
-    "resultRedirect": "https://narammalaps.cat2020.org/result/",
-    "resultRedirectOther": "https://narammalaps.cat2020.org/result/other.html/"
+    "SabaName": "Wennappuwa Pradeshiaya Sabawa",
+    "contact": "0778281938",
+    "rootPath": "https://wennappuwa.cat2020.org",
+    "resultRedirect": "https://wennappuwa.cat2020.org/result/",
+    "resultRedirectOther": "https://wennappuwa.cat2020.org/result/other.html/"
   }
 }
