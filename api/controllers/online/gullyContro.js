@@ -202,7 +202,7 @@ exports.boc = (req, res, nex, param) => {
     console.log(process.env.resultRedirect)
     console.log(process.env.bota_code)
     axios.post(
-      "https://bankofceylon.gateway.mastercard.com/api/rest/version/58/merchant/700193990120/session",
+      "https://bankofceylon.gateway.mastercard.com/api/rest/version/58/merchant/700193990144/session",
       {
         "apiOperation": "CREATE_CHECKOUT_SESSION",
         "interaction": {
@@ -227,7 +227,7 @@ exports.boc = (req, res, nex, param) => {
         }
       }, {
         headers: {
-          "Authorization": "Basic " + btoa("merchant.700193990120:0317669b6b6bbacb6b46f2a6d598aad0")
+          "Authorization": "Basic " + btoa("merchant.700193990144:4854f188e66dad6c2ceb19b8239b5c35")
         }
       }).then(boc => {
       console.log("-------------------------------")

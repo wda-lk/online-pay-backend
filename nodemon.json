@@ -1,15 +1,15 @@
 {
   "env": {
     "JWT_KEY": "secret",
-    "host": "124.43.5.197",
+    "host": "124.43.11.162",
     "user": "root",
-    "password": "KULIUC@#321#",
-    "database": "ultimate2",
+    "password": "3ta@kela#una@",
+    "database": "narammalaps",
     "sendby": "webportal@cat2020.org",
     "sendbypass": "webportal@2020",
-    "SabaName": "Kuliyapitiya UC",
-    "rootPath": "https://kuliyapitiyauc.cat2020.org",
-    "resultRedirect": "https://kuliyapitiyauc.cat2020.org/result/",
-    "resultRedirectOther": "https://kuliyapitiyauc.cat2020.org/result/other.html/"
+    "SabaName": "Narammala Pradeshiya Sabawa",
+    "rootPath": "https://narammalaps.cat2020.org",
+    "resultRedirect": "https://narammalaps.cat2020.org/result/",
+    "resultRedirectOther": "https://narammalaps.cat2020.org/result/other.html/"
   }
 }
