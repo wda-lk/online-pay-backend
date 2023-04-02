@@ -43,8 +43,8 @@ const allowedOrigins = [
   'http://localhost:8080',
   'http://localhost:8100',
   'http://localhost:81',
-  'http://kurunegalaps.cat2020.org',
-  'https://kurunegalaps.cat2020.org',
+  'http://naththandiya.cat2020.org',
+  'https://naththandiya.cat2020.org',
   '*',
 ];
 

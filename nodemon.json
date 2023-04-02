@@ -1,16 +1,16 @@
 {
-    "env": {
-        "JWT_KEY": "secret",
-        "host": "124.43.65.168",
-        "password": "Kuru$#@321%@#$",
-        "database": "online_test",
-        "user": "root",
-        "sendby": "webportal@cat2020.org",
-        "sendbypass": "webportal@2020",
-        "SabaName": "Kurunegala Pradeshiaya Sabawa",
-        "contact": "0778281938",
-        "rootPath": "https://kurunegalaps.cat2020.org/result/",
-        "resultRedirect": "https://kurunegalaps.cat2020.org/result/",
-        "resultRedirectOther": "https://kurunegalaps.cat2020.org/result/other.html/"
-    }
+  "env": {
+    "JWT_KEY": "secret",
+    "host": "124.43.4.231",
+    "password": "NATH@#$321$%",
+    "database": "online_test",
+    "user": "root",
+    "sendby": "webportal@cat2020.org",
+    "sendbypass": "webportal@2020",
+    "SabaName": "Naththandiya Pradeshiya Sabawa",
+    "contact": "0778281938",
+    "rootPath": "https://naththandiya.cat2020.org",
+    "resultRedirect": "https://naththandiya.cat2020.org/result/",
+    "resultRedirectOther": "https://naththandiya.cat2020.org/result/other.html/"
+  }
 }
