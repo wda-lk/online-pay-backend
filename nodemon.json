@@ -1,16 +1,16 @@
 {
   "env": {
     "JWT_KEY": "secret",
-    "host": "124.43.8.250",
+    "host": "124.43.5.82",
+    "password": "IBB@#$321$%",
+    "database": "online_test",
     "user": "root",
-    "password": "CHI@#321#",
-    "database": "ultimate2",
     "sendby": "webportal@cat2020.org",
     "sendbypass": "webportal@2020",
-    "SabaName": "CHILAW URBAN COUNCIL",
+    "SabaName": "Ibbagamuwa Pradeshiaya Sabawa",
+    "contact": "0778281938",
     "rootPath": "https://chilawuc.cat2020.org",
     "resultRedirect": "http://localhost:81/result/",
-    "resultRedirectOther": "http://localhost:81/result/other.html/",
-    "bota_code": "'merchant.700193990048:48e8f29e8583317960b4ff9050247dea'"
+    "resultRedirectOther": "http://localhost:81/result/other.html/"
   }
 }

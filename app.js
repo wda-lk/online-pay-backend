@@ -43,8 +43,8 @@ const allowedOrigins = [
   "http://localhost:8080",
   "http://localhost:8100",
   "http://localhost:81",
-  "http://chilawuc.cat2020.org",
-  "https://chilawuc.cat2020.org",
+  "http://ibbagamuwaps.cat2020.org",
+  "https://ibbagamuwaps.cat2020.org",
   "*"
 ]
 

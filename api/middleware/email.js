@@ -55,9 +55,9 @@ exports.emailSend = (param) => {
 
 exports.mobitelSmsSend = (parm) => {
   let send = {
-    username: "esmsusr_1bjn",
-    password: "2845bli",
-    from: "CHILAWUC",
+    username: "esmsusr_1d89",
+    password: "Gn&!s56Ln",
+    from: "IBBAGAMU PS",
     to: parm.to,
     text: parm.mg,
     mesageType: 1
@@ -66,6 +66,7 @@ exports.mobitelSmsSend = (parm) => {
   axios.post("http://smeapps.mobitel.lk:8585/EnterpriseSMSV3/esmsproxyURL.php", send)
        .then(res => {
          console.log(`statusCode: ${res[0]}`)
+         // console.log(res)
        })
        .catch(error => {
          console.error(error)
