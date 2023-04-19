@@ -3,7 +3,7 @@
         "JWT_KEY": "secret",
         "host": "124.43.7.128",
         "password": "UDU@#321$%",
-        "database": "online_test",
+        "database": "online",
         "user": "root",
         "sendby": "webportal@cat2020.org",
         "sendbypass": "webportal@2020",
