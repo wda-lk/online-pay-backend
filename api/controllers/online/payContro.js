@@ -64,7 +64,7 @@ exports.boc = (req, res, nex, param) => {
   try {
     console.log(param)
     let oder = {
-      "apiOperation": "INITIATE_CHECKOUT",
+      "apiOperation": "CREATE_CHECKOUT_SESSION",
       "interaction": {
         "operation": "PURCHASE",
         "returnUrl": process.env.resultRedirect
@@ -90,7 +90,7 @@ exports.boc = (req, res, nex, param) => {
     console.log(oder)
     console.log("-----------------------")
     axios.post(
-      "https://test-bankofceylon.mtf.gateway.mastercard.com/api/rest/version/63/merchant/TEST700193990215/session",
+      "https://test-bankofceylon.mtf.gateway.mastercard.com/api/rest/version/61/merchant/TEST700193990215/session",
       oder, {
         headers: {
           "Authorization": "Basic " + btoa(

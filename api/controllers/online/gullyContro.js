@@ -202,9 +202,9 @@ exports.boc = (req, res, nex, param) => {
     console.log(process.env.resultRedirect)
     console.log(process.env.bota_code)
     axios.post(
-      "https://test-bankofceylon.mtf.gateway.mastercard.com/api/rest/version/63/merchant/TEST700193990215/session",
+      "https://test-bankofceylon.mtf.gateway.mastercard.com/api/rest/version/61/merchant/TEST700193990215/session",
       {
-        "apiOperation": "INITIATE_CHECKOUT",
+        "apiOperation": "CREATE_CHECKOUT_SESSION",
         "interaction": {
           "operation": "PURCHASE",
           "returnUrl": process.env.resultRedirectOther
