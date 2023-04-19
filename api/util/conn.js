@@ -1,12 +1,12 @@
-const Sequelize = require('sequelize');
+const Sequelize = require("sequelize")
 
-const sequelize = new Sequelize("cat2020-old", "cat2020","cat2020!23" , {
-    port: 3306,
-    host: "localhost",
-    dialect: 'mysql',
-    define: {
-        timestamps: false // true by default. false because bydefault sequelize adds createdAt, modifiedAt columns with timestamps.if you want those columns make ths true.
-    }
-});
+const sequelize = new Sequelize("online_test", "root", "UDU@#321$%", {
+  port: 3306,
+  host: "124.43.7.128",
+  dialect: "mysql",
+  define: {
+    timestamps: false
+  }
+})
 
-module.exports = sequelize;
+module.exports = sequelize

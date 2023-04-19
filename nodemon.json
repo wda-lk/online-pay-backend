@@ -1,16 +1,16 @@
 {
     "env": {
         "JWT_KEY": "secret",
-        "host": "localhost",
-        "password": "cat2020!23",
-        "database": "cat2020-old",
-        "user": "cat2020",
+        "host": "124.43.7.128",
+        "password": "UDU@#321$%",
+        "database": "online_test",
+        "user": "root",
         "sendby": "webportal@cat2020.org",
         "sendbypass": "webportal@2020",
         "SabaName": "",
         "contact": "",
-        "rootPath": "https://localhost:4200",
-        "resultRedirect": "http://localhost:4200/result/",
-        "resultRedirectOther": "http://localhost:4200/result/other.html/"
+        "rootPath": "https://udubaddawaps.cat2020.org",
+        "resultRedirect": "https://udubaddawaps.cat2020.org/result/",
+        "resultRedirectOther": "https://udubaddawaps.cat2020.org/result/other.html/"
     }
 }
