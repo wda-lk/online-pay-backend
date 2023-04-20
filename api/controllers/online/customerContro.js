@@ -64,7 +64,13 @@ exports.newCusSql = (req, res, next) => {
             mg: message + val,
             to: cus.mobile,
           };
-          mail.mobitelSmsSend(smsParam);
+          mail.sendSMSCSMS(smsParam, (err, data) => {
+            if (err) {
+              res.status(500).send({ error: err.message })
+            } else {
+              res.send({ ok: data })
+            }
+          })
 
           db.execute(
             "INSERT INTO `online_cus` (  `fullname`, `nic`, `email`, `mobile`, `pword`, `status`, `code` ) VALUES	(  '" +
@@ -139,7 +145,13 @@ exports.newCus = (req, responce, nex) => {
           mg: message + val,
           to: cus.mobile,
         };
-        mail.mobitelSmsSend(smsParam);
+        mail.sendSMSCSMS(smsParam, (err, data) => {
+            if (err) {
+              res.status(500).send({ error: err.message })
+            } else {
+              res.send({ ok: data })
+            }
+          })
 
         let customer = {
           fullname: cus.fullname,
@@ -195,14 +207,19 @@ exports.getVerification = (req, res, nex) => {
               rows[0].idOnline,
             (e, r, f) => {
               if (!e) {
+
                 var smsParam = {
-                  mg: 'Verification Code is : ' + val,
-                  to: req.body.mobile,
-                };
-                mail.mobitelSmsSend(smsParam);
-                res.send({ mg: 'Ok' });
-              } else {
-                res.send({ mg: 'No' });
+                  mg: "Verification Code is : " + val,
+                  to: req.body.mobile
+                }
+                mail.sendSMSCSMS(smsParam, (err, data) => {
+                  if (err) {
+                    res.status(500).send({ error: err.message })
+                  } else {
+                    res.send({ ok: data })
+                  }
+                })
+
               }
             }
           );

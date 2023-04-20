@@ -256,15 +256,21 @@ exports.responce = (req, res, nex) => {
                                 subject: 'Payment Recipt',
                                 text: 'Text message',
                             };
+                          this.update_payment_status(data)
+                          mail.emailSend(param)
 
-                            var parmsam = {
-                                to: data.mobile,
-                                mg: 'payment sucsess...!!!',
-                            };
+                          let parmsam = {
+                            to: data.mobile,
+                            mg: "payment sucsess...!!!"
+                          }
+                          mail.sendSMSCSMS(parmsam, (err, data) => {
+                            if (err) {
+                              res.status(500).send({ error: err.message })
+                            } else {
+                              res.send({ ok: data })
+                            }
+                          })
 
-                            this.update_payment_status(data);
-                            mail.emailSend(param);
-                            mail.mobitelSmsSend(parmsam);
                         }
                         res.send(rows);
                     });
