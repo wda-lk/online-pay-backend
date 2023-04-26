@@ -34,29 +34,29 @@ const waterbowsersRoute = require("./api/routes/online/waterbowsers")
 // Testing Comment
 
 const allowedOrigins = [
-	"capacitor://localhost",
-	"ionic://localhost",
-	"http://localhost",
-	"http://localhost:4200",
-	"http://127.0.0.1:4200",
-	"http://192.168.8.103:4200",
-	"http://localhost:8080",
-	"http://localhost:8100",
-	"http://localhost:81",
-	"http://kurunegalamc.cat2020.org",
-	"https://kurunegalamc.cat2020.org",
-	"*"
+  "capacitor://localhost",
+  "ionic://localhost",
+  "http://localhost",
+  "http://localhost:4200",
+  "http://127.0.0.1:4200",
+  "http://192.168.8.103:4200",
+  "http://localhost:8080",
+  "http://localhost:8100",
+  "http://localhost:81",
+  "http://kurunegalamc.cat2020.org",
+  "https://kurunegalamc.cat2020.org",
+  "*"
 ]
 
 // Reflect the origin if it's in the allowed list or not defined (cURL, Postman, etc.)
 const corsOptions = {
-	origin: (origin, callback) => {
-		if (allowedOrigins.includes(origin) || !origin) {
-			callback(null, true)
-		} else {
-			callback(new Error("Origin not allowed by CORS"))
-		}
-	}
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true)
+    } else {
+      callback(new Error("Origin not allowed by CORS"))
+    }
+  }
 }
 
 // Enable preflight requests for all routes
@@ -64,7 +64,7 @@ app.options("*", cors(corsOptions))
 
 app.use(cors())
 app.use(morgan("dev"))
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 const urlPrifix = "/online/"
@@ -91,20 +91,37 @@ app.use(urlPrifix + "complains", complain)
 app.use(urlPrifix + "gully", gullyRoute)
 app.use(urlPrifix + "waterbowser", waterbowsersRoute)
 
+app.use("/sms", (req, res, next) => {
+  let mobile = "0772646768"
+  let message = "Hi " + "data.fullname" + "\n" +
+                "Payment successful for id: " +
+                "data.idOnPaid" + "\n" + "Assessment info: " +
+                "data.ward_name" + " - " + "data.street_name" +
+                " - " + "data.assessment_no" + "\n" +
+                "Amount: LKR: " + "data.amount"
+  mail.sendSMSCSMS({ to: mobile, mg: message }, (err, data) => {
+    if (err) {
+      res.status(500).send({ error: err.message })
+    } else {
+      res.send({ ok: data })
+    }
+  })
+})
+
 app.use((req, res, next) => {
-	const error = new Error("Not Found ela kiri")
-	error.status = 404
-	console.log(error.message)
-	next(error)
+  const error = new Error("Not Found ela kiri")
+  error.status = 404
+  console.log(error.message)
+  next(error)
 })
 
 app.use((error, req, res, next) => {
-	res.status(error.status || 500)
-	res.json({
-		error: {
-			message: error.message
-		}
-	})
+  res.status(error.status || 500)
+  res.json({
+    error: {
+      message: error.message
+    }
+  })
 })
 
 module.exports = app
