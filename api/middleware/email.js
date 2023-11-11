@@ -53,7 +53,7 @@ exports.emailSend = (param) => {
   }
 }
 
-exports.SendlkSmsSend = (parm) => {
+exports.mobitelSmsSend = (parm) => {
   let send = {
     username: "esmsusr_14ju",
     password: "Nath123*",
