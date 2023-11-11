@@ -53,7 +53,7 @@ exports.emailSend = (param) => {
   }
 }
 
-exports.mobitelSmsSend = (parm) => {
+exports.SendlkSmsSend = (parm) => {
   let send = {
     username: "esmsusr_14ju",
     password: "Nath123*",
@@ -71,6 +71,31 @@ exports.mobitelSmsSend = (parm) => {
        .catch(error => {
          console.error(error)
        })
+}
+
+exports.SendlkSmsSend = (parm) => {
+const apiUrl = 'https://sms.send.lk/api/v3/sms/send'; // Replace with the actual SMS endpoint
+const sender_id= 'CAT20';
+const accessToken = '1478|JDRl8GQ6ac7a0cmafiNjo0Gzt674AR3QN8bOOzVP'; // Replace with your actual Bearer token
+
+const smsData = {
+  recipient: parm.to, // Replace with the recipient's phone number
+  sender_id:sender_id,
+  message: parm.mg, // Replace with your SMS message
+};
+
+axios.post(apiUrl, smsData, {
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${accessToken}`,
+  },
+})
+  .then(response => {
+    console.log('SMS sent successfully:', response.data);
+  })
+  .catch(error => {
+    console.error('Error sending SMS:', error.message);
+  });
 }
 
 exports.testSmsSend = (parm) => {
