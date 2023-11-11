@@ -9,7 +9,7 @@ const mail = require('../../middleware/email');
 const message =
   "Registration Success in '" +
   process.env.SabaName +
-  "'. Youre Verification code is : ";
+  "'. Your Verification code is : ";
 
 exports.conferm = (req, res, nex) => {
   const cus = { mobile: req.body.mobile, code: req.body.code };
@@ -47,7 +47,7 @@ exports.newCusSql = (req, res, next) => {
         if (r.length != 0) {
           console.log('Data ++++++++++++++++++++++++++');
           res.status(200).send({
-            mg: 'Email or Mobile Already Registered Plese Login',
+            mg: 'Email or Mobile Already Registered Please Login',
             status: '0',
           });
         } else {
@@ -120,7 +120,7 @@ exports.newCus = (req, responce, nex) => {
       if (result.length != 0) {
         console.log('Data ++++++++++++++++++++++++++');
         responce.status(200).send({
-          mg: 'Email or Mobile Already Registered Plese Login',
+          mg: 'Email or Mobile Already Registered Please Login',
           status: '0',
         });
       } else {
