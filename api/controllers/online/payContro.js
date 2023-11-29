@@ -77,12 +77,12 @@ exports.boc = (req, res, nex, param) => {
       },
       "billing": {
         "address": {
-          "city": "Udubaddawa",
-          "postcodeZip": "60250",
+          "city": "Naththandiya",
+          "postcodeZip": "61190",
           "stateProvince": "North Western",
           "country": "LKA",
           "street": "A.T.No. " + param.app,
-          "street2": "Udubaddawa"
+          "street2": "Naththandiya"
         }
       }
     }
@@ -90,11 +90,11 @@ exports.boc = (req, res, nex, param) => {
     console.log(oder)
     console.log("-----------------------")
     axios.post(
-      "https://bankofceylon.gateway.mastercard.com/api/rest/version/61/merchant/700193990215/session",
+      "https://bankofceylon.gateway.mastercard.com/api/rest/version/61/merchant/700193990171/session",
       oder, {
         headers: {
           "Authorization": "Basic " + btoa(
-            "merchant.700193990215:b7bf278a51ace7dec23c047383b62cf4")
+            "merchant.700193990171:d47a8057949abf599ddc49b6824e1acd")
         }
       }).then(boc => {
       console.log("-------------------------------")
@@ -173,7 +173,7 @@ exports.responce = (req, res, nex) => {
                             process.env.SabaName + "Hot Line: " +
                             process.env.contact
               mail.emailSend(param)
-              mail.mobitelSmsSend({ to: data.mobile, mg: message })
+              mail.SendlkSmsSend({ to: data.mobile, mg: message })
             }
             res.send(rows)
           })

@@ -34,19 +34,19 @@ const waterbowsersRoute = require("./api/routes/online/waterbowsers")
 // Testing Comment
 
 const allowedOrigins = [
-  "capacitor://localhost",
-  "ionic://localhost",
-  "http://localhost",
-  "http://localhost:4200",
-  "http://127.0.0.1:4200",
-  "http://192.168.8.103:4200",
-  "http://localhost:8080",
-  "http://localhost:8100",
-  "http://localhost:81",
-  "http://udubaddawaps.cat2020.org",
-  "https://udubaddawaps.cat2020.org",
-  "*"
-]
+  'capacitor://localhost',
+  'ionic://localhost',
+  'http://localhost',
+  'http://localhost:4200',
+  'http://127.0.0.1:4200',
+  'http://192.168.8.103:4200',
+  'http://localhost:8080',
+  'http://localhost:8100',
+  'http://localhost:81',
+  'http://naththandiya.cat2020.org',
+  'https://naththandiya.cat2020.org',
+  '*',
+];
 
 // Reflect the origin if it's in the allowed list or not defined (cURL, Postman, etc.)
 const corsOptions = {
@@ -92,7 +92,7 @@ app.use(urlPrifix + "gully", gullyRoute)
 app.use(urlPrifix + "waterbowser", waterbowsersRoute)
 
 // app.use('/sms', (req, res, next) => {
-//   message.mobitelSmsSend({ to: '0702517628', mg: 'test parameeter' });
+//   message.SendlkSmsSend({ to: '0702517628', mg: 'test parameeter' });
 //   res.send({ ok: 'ok' });
 // });
 
