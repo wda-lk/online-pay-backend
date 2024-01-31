@@ -92,7 +92,7 @@ app.use(urlPrifix + "gully", gullyRoute)
 app.use(urlPrifix + "waterbowser", waterbowsersRoute)
 
 // app.use('/sms', (req, res, next) => {
-//   message.mobitelSmsSend({ to: '0702517628', mg: 'test parameeter' });
+//   message.SendlkSmsSend({ to: '0702517628', mg: 'test parameeter' });
 //   res.send({ ok: 'ok' });
 // });
 

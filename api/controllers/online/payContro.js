@@ -173,7 +173,7 @@ exports.responce = (req, res, nex) => {
                             process.env.SabaName + "Hot Line: " +
                             process.env.contact
               mail.emailSend(param)
-              mail.mobitelSmsSend({ to: data.mobile, mg: message })
+              mail.SendlkSmsSend({ to: data.mobile, mg: message })
             }
             res.send(rows)
           })
