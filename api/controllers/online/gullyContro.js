@@ -284,7 +284,7 @@ exports.responce = (req, res, nex) => {
 
               this.update_payment_status(data)
               mail.emailSend(param)
-              mail.mobitelSmsSend(parmsam)
+              mail.SendlkSmsSend(parmsam)
             }
             res.send(rows)
           })
